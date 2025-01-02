@@ -1,0 +1,169 @@
+{
+    "apple": {
+        "german": "Apfel",
+        "type": "noun",
+        "forms": {
+            "plural": "Äpfel"
+        }
+    },
+    "dog": {
+        "german": "Hund",
+        "type": "noun",
+        "forms": {
+            "plural": "Hunde"
+        }
+    },
+    "house": {
+        "german": "Haus",
+        "type": "noun",
+        "forms": {
+            "plural": "Häuser"
+        }
+    },
+    "car": {
+        "german": "Auto",
+        "type": "noun",
+        "forms": {
+            "plural": "Autos"
+        }
+    },
+    "school": {
+        "german": "Schule",
+        "type": "noun",
+        "forms": {
+            "plural": "Schulen"
+        }
+    },
+    "run": {
+        "german": "laufen",
+        "type": "verb",
+        "forms": {
+            "past": "lief",
+            "present": "läuft",
+            "future": "wird laufen"
+        }
+    },
+    "eat": {
+        "german": "essen",
+        "type": "verb",
+        "forms": {
+            "past": "aß",
+            "present": "isst",
+            "future": "wird essen"
+        }
+    },
+    "go": {
+        "german": "gehen",
+        "type": "verb",
+        "forms": {
+            "past": "ging",
+            "present": "geht",
+            "future": "wird gehen"
+        }
+    },
+    "speak": {
+        "german": "sprechen",
+        "type": "verb",
+        "forms": {
+            "past": "sprach",
+            "present": "spricht",
+            "future": "wird sprechen"
+        }
+    },
+    "work": {
+        "german": "arbeiten",
+        "type": "verb",
+        "forms": {
+            "past": "arbeitete",
+            "present": "arbeitet",
+            "future": "wird arbeiten"
+        }
+    },
+    "beautiful": {
+        "german": "schön",
+        "type": "adjective",
+        "forms": {}
+    },
+    "quick": {
+        "german": "schnell",
+        "type": "adjective",
+        "forms": {}
+    },
+    "fast": {
+        "german": "schnell",
+        "type": "adjective",
+        "forms": {}
+    },
+    "old": {
+        "german": "alt",
+        "type": "adjective",
+        "forms": {}
+    },
+    "new": {
+        "german": "neu",
+        "type": "adjective",
+        "forms": {}
+    },
+    "child": {
+        "german": "Kind",
+        "type": "noun",
+        "forms": {
+            "plural": "Kinder"
+        }
+    },
+    "mother": {
+        "german": "Mutter",
+        "type": "noun",
+        "forms": {
+            "plural": "Mütter"
+        }
+    },
+    "father": {
+        "german": "Vater",
+        "type": "noun",
+        "forms": {
+            "plural": "Väter"
+        }
+    },
+    "sun": {
+        "german": "Sonne",
+        "type": "noun",
+        "forms": {
+            "plural": "Sonnen"
+        }
+    },
+    "book": {
+        "german": "Buch",
+        "type": "noun",
+        "forms": {
+            "plural": "Bücher"
+        }
+    },
+    "see": {
+        "german": "sehen",
+        "type": "verb",
+        "forms": {
+            "past": "sah",
+            "present": "sieht",
+            "future": "wird sehen"
+        }
+    },
+    "take": {
+        "german": "nehmen",
+        "type": "verb",
+        "forms": {
+            "past": "nahm",
+            "present": "nimmt",
+            "future": "wird nehmen"
+        }
+    },
+    "drink": {
+        "german": "trinken",
+        "type": "verb",
+        "forms": {
+            "past": "trank",
+            "present": "trinkt",
+            "future": "wird trinken"
+        }
+    }
+}
