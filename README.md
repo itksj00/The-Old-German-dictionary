@@ -77,4 +77,11 @@ The-old-German-dictionary
 -    main.py
 -    search_history.py
 -    words_data.json
+-    english_to_german_with_forms.db
 
+#### Summary:
+- db_manager.py is responsible for database setup.
+- main.py will handle the program logic and user interaction.
+- search_history.py tracks and displays search history.
+- words_data.json provides initial word data for populating the database.
+- english_to_german_with_forms.db is the database that stores all the translations and word information.
