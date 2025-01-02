@@ -4,73 +4,52 @@
 
 import sqlite3
 import os
+import json
 
 DB_FILE = "english_to_german_with_forms.db"
+JSON_FILE = "words_data.json"  # Path to the JSON file with initial word data
 
-# Initialize the database if it does not exist
+# Initialize the database and import data from the JSON file
 def initialize_database():
-    if not os.path.exists(DB_FILE):  # First time the program runs, create the database
+    if not os.path.exists(DB_FILE):  # If the database does not exist
         conn = sqlite3.connect(DB_FILE)
         cursor = conn.cursor()
 
-        # Create the 'translations' table for storing word translations and details
+        # Create the 'translations' table with the structure for noun/verb and forms
         cursor.execute("""
-        CREATE TABLE IF NOT EXISTS translations (
-            id INTEGER PRIMARY KEY AUTOINCREMENT,
-            english_word TEXT NOT NULL UNIQUE,
+        CREATE TABLE translations (
+            id INTEGER PRIMARY KEY,
+            english_word TEXT NOT NULL,
             german_word TEXT NOT NULL,
-            gender TEXT,
-            verb_forms TEXT,
-            category TEXT NOT NULL
+            word_type TEXT NOT NULL,
+            plural_form TEXT,
+            past_form TEXT,
+            present_form TEXT,
+            future_form TEXT
         )
         """)
 
-        # Create the 'search_history' table for storing the search history
-        cursor.execute("""
-        CREATE TABLE IF NOT EXISTS search_history (
-            id INTEGER PRIMARY KEY AUTOINCREMENT,
-            word TEXT NOT NULL,
-            timestamp DATETIME DEFAULT CURRENT_TIMESTAMP
-        )
-        """)
+        # Load initial data from JSON file
+        with open(JSON_FILE, 'r', encoding='utf-8') as f:
+            data = json.load(f)
+
+        # Insert data into the database
+        for english_word, details in data.items():
+            german_word = details["german"]
+            word_type = details["type"]
+            forms = details.get("forms", {})
+            plural_form = forms.get("plural")
+            past_form = forms.get("past")
+            present_form = forms.get("present")
+            future_form = forms.get("future")
+
+            cursor.execute("""
+            INSERT INTO translations (english_word, german_word, word_type, plural_form, past_form, present_form, future_form)
+            VALUES (?, ?, ?, ?, ?, ?, ?)
+            """, (english_word, german_word, word_type, plural_form, past_form, present_form, future_form))
 
         conn.commit()
         conn.close()
-        print("Database initialized.")  # Print message when the database is initialized
-    else:
-        print("Database already exists.")  # Message if the database already exists
 
-# Add a new word translation
-def add_translation(english_word, german_word, gender=None, verb_forms=None, category=None):
-    conn = sqlite3.connect(DB_FILE)
-    cursor = conn.cursor()
-
-    try:
-        cursor.execute("INSERT INTO translations (english_word, german_word, gender, verb_forms, category) VALUES (?, ?, ?, ?, ?)",
-                       (english_word, german_word, gender, verb_forms, category))
-        conn.commit()
-    except sqlite3.IntegrityError:
-        pass  # Prevent duplicate words from being added
-    
-    conn.close()
-
-# Search for a word translation in the database
-def search_translation(english_word):
-    conn = sqlite3.connect(DB_FILE)
-    cursor = conn.cursor()
-
-    cursor.execute("SELECT german_word, gender, verb_forms, category FROM translations WHERE english_word = ?", (english_word,))
-    result = cursor.fetchone()
-
-    if result:
-        german_word, gender, verb_forms, category = result
-        output = f"{english_word} => {german_word} ({category})"
-        if gender:
-            output += f" - Gender: {gender}"
-        if verb_forms:
-            output += f" - Verb Forms: {verb_forms}"
-        conn.close()
-        return output
-    else:
-        conn.close()
-        return f"'{english_word}' is not in the database."
+# Initialize the database if it does not exist and import words
+initialize_database()
