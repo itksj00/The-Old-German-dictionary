@@ -75,7 +75,5 @@ Each file handles a specific feature, such as word management, search history ma
 The-old-German-dictionary
 -    db_manager.py
 -    main.py
--    requirements.txt
 -    search_history.py
--    translation.py
 
