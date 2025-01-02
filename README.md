@@ -76,4 +76,5 @@ The-old-German-dictionary
 -    db_manager.py
 -    main.py
 -    search_history.py
+-    words_data.json
 
