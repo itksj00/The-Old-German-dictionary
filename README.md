@@ -1,5 +1,5 @@
 # The-Old-German-dictionary
-En: A Dictionary That Hasn't Kept Up with the Times / de: Ein Wörterbuch, das mit der Zeit nicht Schritt gehalten hat
+En: A Dictionary That Hasn't Kept Up with the Times / De: Ein Wörterbuch, das mit der Zeit nicht Schritt gehalten hat
 
 ## What is this? 🍺
 While studying German, instead of focusing on the actual German learning, I came up with an idea related to it and ended up starting development..
